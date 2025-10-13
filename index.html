@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Remeras - Carrito</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Tienda de Remeras</h1>
+            <nav class="nav">
+                <button id="btn-abrir-carrito" aria-controls="carrito" aria-expanded="false" class="btn btn-primary">
+                    Ver Carrito
+                    <span id="carrito-cantidad" class="badge">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container layout">
+        <section class="productos">
+            <h2>Catálogo</h2>
+            <div id="productos" class="grid-productos" aria-live="polite">
+                <!-- Ejemplos de remeras (puedes generar dinámicamente con JS) -->
+                <article class="card producto" data-id="1" data-nombre="Remera Básica Negra" data-precio="7999" data-img="img/remera-negra.jpg">
+                    <img src="img/remera-negra.jpg" alt="Remera básica negra" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Remera Básica Negra</h3>
+                        <p class="card-price">$7.999</p>
+                        <button class="btn btn-add" data-action="add">Agregar al carrito</button>
+                    </div>
+                </article>
+                <article class="card producto" data-id="2" data-nombre="Remera Blanca Oversize" data-precio="8999" data-img="img/remera-blanca.jpg">
+                    <img src="img/remera-blanca.jpg" alt="Remera blanca oversize" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Remera Blanca Oversize</h3>
+                        <p class="card-price">$8.999</p>
+                        <button class="btn btn-add" data-action="add">Agregar al carrito</button>
+                    </div>
+                </article>
+                <article class="card producto" data-id="3" data-nombre="Remera Estampada Vintage" data-precio="9999" data-img="img/remera-vintage.jpg">
+                    <img src="img/remera-vintage.jpg" alt="Remera estampada estilo vintage" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Remera Estampada Vintage</h3>
+                        <p class="card-price">$9.999</p>
+                        <button class="btn btn-add" data-action="add">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <aside id="carrito" class="carrito" aria-hidden="true" aria-labelledby="titulo-carrito">
+            <h2 id="titulo-carrito">Tu Carrito</h2>
+            <div id="carrito-items" class="carrito-items" aria-live="polite">
+                <!-- Items del carrito renderizados por JS -->
+            </div>
+            <div class="carrito-resumen">
+                <div class="carrito-totales">
+                    <span>Total:</span>
+                    <strong id="carrito-total">$0</strong>
+                </div>
+                <div class="carrito-acciones">
+                    <button id="btn-vaciar" class="btn btn-secondary">Vaciar</button>
+                    <button id="btn-comprar" class="btn btn-primary">Finalizar compra</button>
+                </div>
+            </div>
+            <button id="btn-cerrar-carrito" class="carrito-close" aria-label="Cerrar carrito">×</button>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="year"></span> Tienda de Remeras. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
