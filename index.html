@@ -1,81 +1,1167 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Remeras - Carrito</title>
+    <title>Kazeover - Tienda Online de Remeras</title>
+    <meta name="description"
+        content="Remeras oversize de alta calidad. Diseños únicos, materiales premium y envío gratis.">
+
     <link rel="stylesheet" href="style.css">
+
+    <script src="main.js" defer></script>
 </head>
+
+
+
 <body>
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">Tienda de Remeras</h1>
-            <nav class="nav">
-                <button id="btn-abrir-carrito" aria-controls="carrito" aria-expanded="false" class="btn btn-primary">
-                    Ver Carrito
-                    <span id="carrito-cantidad" class="badge">0</span>
+    <!-- Header de navegador -->
+    <header class="app-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Navegación principal">
+            <div class="nav-brand">
+                <h1 class="brand-logo">
+                    <span class="brand-icon">👕</span>
+                    Kazeover
+                </h1>
+            </div>
+
+            <div class="nav-actions">
+                <button class="search-toggle" aria-label="Buscar productos" title="Buscar">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
                 </button>
-            </nav>
-        </div>
+
+                <button class="cart-toggle" id="cart-toggle" aria-controls="cart-drawer" aria-expanded="false"
+                    data-cart-count="0">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                        </path>
+                    </svg>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+            </div>
+        </nav>
     </header>
 
-    <main class="container layout">
-        <section class="productos">
-            <h2>Catálogo</h2>
-            <div id="productos" class="grid-productos" aria-live="polite">
-                <!-- Ejemplos de remeras (puedes generar dinámicamente con JS) -->
-                <article class="card producto" data-id="1" data-nombre="Remera Básica Negra" data-precio="7999" data-img="img/remera-negra.jpg">
-                    <img src="img/remera-negra.jpg" alt="Remera básica negra" class="card-img">
-                    <div class="card-body">
-                        <h3 class="card-title">Remera Básica Negra</h3>
-                        <p class="card-price">$7.999</p>
-                        <button class="btn btn-add" data-action="add">Agregar al carrito</button>
+    <!-- Main principal -->
+    <main class="app-main" role="main">
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h2 id="hero-title" class="hero-title">
+                    Remeras que <span class="text-gradient">definen tu estilo</span>
+                </h2>
+                <p class="hero-subtitle">
+                    Descubre nuestra colección exclusiva de remeras premium.
+                    Calidad, comodidad y diseño en cada prenda.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Diseños únicos</span>
                     </div>
-                </article>
-                <article class="card producto" data-id="2" data-nombre="Remera Blanca Oversize" data-precio="8999" data-img="img/remera-blanca.jpg">
-                    <img src="img/remera-blanca.jpg" alt="Remera blanca oversize" class="card-img">
-                    <div class="card-body">
-                        <h3 class="card-title">Remera Blanca Oversize</h3>
-                        <p class="card-price">$8.999</p>
-                        <button class="btn btn-add" data-action="add">Agregar al carrito</button>
+                    <div class="stat">
+                        <span class="stat-number">10k+</span>
+                        <span class="stat-label">Clientes felices</span>
                     </div>
-                </article>
-                <article class="card producto" data-id="3" data-nombre="Remera Estampada Vintage" data-precio="9999" data-img="img/remera-vintage.jpg">
-                    <img src="img/remera-vintage.jpg" alt="Remera estampada estilo vintage" class="card-img">
-                    <div class="card-body">
-                        <h3 class="card-title">Remera Estampada Vintage</h3>
-                        <p class="card-price">$9.999</p>
-                        <button class="btn btn-add" data-action="add">Agregar al carrito</button>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Soporte</span>
                     </div>
-                </article>
+                </div>
             </div>
         </section>
 
-        <aside id="carrito" class="carrito" aria-hidden="true" aria-labelledby="titulo-carrito">
-            <h2 id="titulo-carrito">Tu Carrito</h2>
-            <div id="carrito-items" class="carrito-items" aria-live="polite">
-                <!-- Items del carrito renderizados por JS -->
-            </div>
-            <div class="carrito-resumen">
-                <div class="carrito-totales">
-                    <span>Total:</span>
-                    <strong id="carrito-total">$0</strong>
+        <!-- Filters & Search -->
+        <section class="filters-section" aria-labelledby="filters-title">
+            <div class="filters-container">
+                <h3 id="filters-title" class="filters-title">Filtrar productos</h3>
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="category-filter" class="filter-label">Categoría</label>
+                        <select id="category-filter" class="filter-select" aria-label="Filtrar por categoría">
+                            <option value="">Todas las categorías</option>
+                            <option value="basicas">Básicas</option>
+                            <option value="estampadas">Estampadas</option>
+                            <option value="oversize">Oversize</option>
+                            <option value="vintage">Vintage</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="price-filter" class="filter-label">Precio</label>
+                        <select id="price-filter" class="filter-select" aria-label="Filtrar por precio">
+                            <option value="">Todos los precios</option>
+                            <option value="0-5000">$0 - $5.000</option>
+                            <option value="5000-10000">$5.000 - $10.000</option>
+                            <option value="10000+">$10.000+</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="sort-filter" class="filter-label">Ordenar</label>
+                        <select id="sort-filter" class="filter-select" aria-label="Ordenar productos">
+                            <option value="featured">Destacados</option>
+                            <option value="price-low">Precio: menor a mayor</option>
+                            <option value="price-high">Precio: mayor a menor</option>
+                            <option value="newest">Más recientes</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="carrito-acciones">
-                    <button id="btn-vaciar" class="btn btn-secondary">Vaciar</button>
-                    <button id="btn-comprar" class="btn btn-primary">Finalizar compra</button>
+            </div>
+        </section>
+
+        <!-- Productos en grid -->
+        <section class="products-section" aria-labelledby="products-title">
+            <div class="products-header">
+                <h2 id="products-title" class="products-title">
+                    Nuestra Colección
+                    <span class="products-count" id="products-count">(12 productos)</span>
+                </h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" aria-label="Vista de cuadrícula">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </button>
+
+                    <button class="view-btn" data-view="list" aria-label="Vista de lista">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                    </button>
                 </div>
             </div>
-            <button id="btn-cerrar-carrito" class="carrito-close" aria-label="Cerrar carrito">×</button>
-        </aside>
+
+            <!-- Productos en grid -->
+            <div class="products-grid" id="products-grid" role="grid" aria-live="polite">
+               
+                
+                 <!-- Card Producto 1 -->
+                <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+                    data-price="7999" data-featured="true">
+                    <div class="product-image-container">
+                        <img src="./img/carrusel1index.jpg" alt="New York" class="product-image" loading="lazy">
+
+                        <div class="product-badges">
+                            <span class="badge badge-featured">Destacado</span>
+                        </div>
+
+
+                        <div class="product-actions">
+                            <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                                title="Agregar a favoritos">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+
+
+                            </button>
+
+
+                            <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <!-- Contenido del producto -->
+                    <div class="product-content">
+                        <div class="product-category"></div>
+                        <h3 class="product-title"></h3>
+                        <p class="product-description"></p>
+
+                        <div class="product-rating">
+                            <div class="stars" aria-label="4.5 de 5 estrellas">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star half">★</span>
+                            </div>
+                            <span class="rating-count">(128)</span>
+                        </div>
+
+                        <div class="product-pricing">
+                            <span class="current-price">$7.999</span>
+                            <span class="original-price">$9.999</span>
+                            <span class="discount-badge">-20%</span>
+                        </div>
+
+                        <!-- Talles del producto -->
+                        <div class="product-sizes">
+                            <span class="size-label">Talle:</span>
+                            <div class="size-options">
+                                <button class="size-btn" data-size="S">S</button>
+                                <button class="size-btn active" data-size="M">M</button>
+                                <button class="size-btn" data-size="L">L</button>
+                                <button class="size-btn" data-size="XL">XL</button>
+                            </div>
+                        </div>
+
+                        <!-- Botón de agregar al carrito -->
+                        <button class="add-to-cart-btn" data-product-id="1"
+                            aria-label="Agregar Remera Básica Negra al carrito">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                                </path>
+                            </svg>
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card Producto 2 -->
+                <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+                data-price="7999" data-featured="true">
+                <div class="product-image-container">
+                    <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+                    <div class="product-actions">
+                        <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                            title="Agregar a favoritos">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+
+
+                        </button>
+
+
+                        <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Contenido del producto -->
+                <div class="product-content">
+                    <div class="product-category"></div>
+                    <h3 class="product-title"></h3>
+                    <p class="product-description"></p>
+
+                    <div class="product-rating">
+                        <div class="stars" aria-label="4.5 de 5 estrellas">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <span class="rating-count">(128)</span>
+                    </div>
+
+                    <div class="product-pricing">
+                        <span class="current-price">$7.999</span>
+                        <span class="original-price">$9.999</span>
+                        <span class="discount-badge">-20%</span>
+                    </div>
+
+                    <!-- Tallas del producto -->
+                    <div class="product-sizes">
+                        <span class="size-label"></span>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn active" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
+                    </div>
+
+                    <!-- Botón de agregar al carrito -->
+                    <button class="add-to-cart-btn" data-product-id="1"
+                        aria-label="Agregar Remera Básica Negra al carrito">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                            </path>
+                        </svg>
+                        Agregar al carrito
+                    </button>
+                </div>
+            </article>
+
+
+
+                 <!-- Card Producto 2 -->
+                <article class="product-card" role="gridcell" data-product-id="2" data-category="oversize"
+                    data-price="8999">
+                    <div class="product-image-container">
+                        <img src="./img/newyork.jpeg" alt="New York" class="product-image" loading="lazy">
+                        <div class="product-badges">
+                            <span class="badge badge-new">Nuevo</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </button>
+                            <button class="action-btn quick-view-btn" aria-label="Vista rápida">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-content">
+                        <div class="product-category">Oversize</div>
+                        <h3 class="product-title">New York</h3>
+                        <p class="product-description">Corte oversize relajado, perfecta para un look casual y cómodo.
+                        </p>
+
+                        <div class="product-rating">
+                            <div class="stars" aria-label="4.2 de 5 estrellas">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <span class="rating-count">(89)</span>
+                        </div>
+
+                        <div class="product-pricing">
+                            <span class="current-price">$8.999</span>
+                        </div>
+
+                        <div class="product-sizes">
+                            <span class="size-label">Talle:</span>
+                            <div class="size-options">
+                                <button class="size-btn" data-size="S">S</button>
+                                <button class="size-btn" data-size="M">M</button>
+                                <button class="size-btn active" data-size="L">L</button>
+                                <button class="size-btn" data-size="XL">XL</button>
+                            </div>
+                        </div>
+
+                        <button class="add-to-cart-btn" data-product-id="2"
+                            aria-label="Agregar Remera Blanca Oversize al carrito">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                                </path>
+                            </svg>
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card Producto 2 -->
+                <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+                data-price="7999" data-featured="true">
+                <div class="product-image-container">
+                    <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+                    <div class="product-actions">
+                        <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                            title="Agregar a favoritos">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+
+
+                        </button>
+
+
+                        <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Contenido del producto -->
+                <div class="product-content">
+                    <div class="product-category">Oversize</div>
+                    <h3 class="product-title">New York</h3>
+                    <p class="product-description">Algodón 100% premium, corte clásico y comodidad garantizada.</p>
+
+                    <div class="product-rating">
+                        <div class="stars" aria-label="4.5 de 5 estrellas">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <span class="rating-count">(128)</span>
+                    </div>
+
+                    <div class="product-pricing">
+                        <span class="current-price">$7.999</span>
+                        <span class="original-price">$9.999</span>
+                        <span class="discount-badge">-20%</span>
+                    </div>
+
+                    <!-- Tallas del producto -->
+                    <div class="product-sizes">
+                        <span class="size-label">Talle:</span>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn active" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
+                    </div>
+
+                    <!-- Botón de agregar al carrito -->
+                    <button class="add-to-cart-btn" data-product-id="1"
+                        aria-label="Agregar Remera Básica Negra al carrito">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                            </path>
+                        </svg>
+                        Agregar al carrito
+                    </button>
+                </div>
+            </article>
+
+
+            <!-- Card Producto 2 -->
+            <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+            data-price="7999" data-featured="true">
+            <div class="product-image-container">
+                <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+                <div class="product-actions">
+                    <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                        title="Agregar a favoritos">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+
+
+                    </button>
+
+
+                    <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- Contenido del producto -->
+            <div class="product-content">
+                <div class="product-category">Oversize</div>
+                <h3 class="product-title">New York</h3>
+                <p class="product-description">Algodón 100% premium, corte clásico y comodidad garantizada.</p>
+
+                <div class="product-rating">
+                    <div class="stars" aria-label="4.5 de 5 estrellas">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star half">★</span>
+                    </div>
+                    <span class="rating-count">(128)</span>
+                </div>
+
+                <div class="product-pricing">
+                    <span class="current-price">$7.999</span>
+                    <span class="original-price">$9.999</span>
+                    <span class="discount-badge">-20%</span>
+                </div>
+
+                <!-- Talles del producto -->
+                <div class="product-sizes">
+                    <span class="size-label">Talle:</span>
+                    <div class="size-options">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn active" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                </div>
+
+                <!-- Botón de agregar al carrito -->
+                <button class="add-to-cart-btn" data-product-id="1"
+                    aria-label="Agregar Remera Básica Negra al carrito">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                        </path>
+                    </svg>
+                    Agregar al carrito
+                </button>
+            </div>
+        </article>
+
+
+
+        <!-- Card Producto 2 -->
+        <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+        data-price="7999" data-featured="true">
+        <div class="product-image-container">
+            <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+            <div class="product-actions">
+                <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                    title="Agregar a favoritos">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+
+
+                </button>
+
+
+                <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Contenido del producto -->
+        <div class="product-content">
+            <div class="product-category">Oversize</div>
+            <h3 class="product-title">New York</h3>
+            <p class="product-description">Algodón 100% premium, corte clásico y comodidad garantizada.</p>
+
+            <div class="product-rating">
+                <div class="stars" aria-label="4.5 de 5 estrellas">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star half">★</span>
+                </div>
+                <span class="rating-count">(128)</span>
+            </div>
+
+            <div class="product-pricing">
+                <span class="current-price">$7.999</span>
+                <span class="original-price">$9.999</span>
+                <span class="discount-badge">-20%</span>
+            </div>
+
+            <!-- Tallas del producto -->
+            <div class="product-sizes">
+                <span class="size-label">Tallas:</span>
+                <div class="size-options">
+                    <button class="size-btn" data-size="S">S</button>
+                    <button class="size-btn active" data-size="M">M</button>
+                    <button class="size-btn" data-size="L">L</button>
+                    <button class="size-btn" data-size="XL">XL</button>
+                </div>
+            </div>
+
+            <!-- Botón de agregar al carrito -->
+            <button class="add-to-cart-btn" data-product-id="1"
+                aria-label="Agregar Remera Básica Negra al carrito">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                    </path>
+                </svg>
+                Agregar al carrito
+            </button>
+        </div>
+    </article>
+
+
+
+    <!-- Card Producto 2 -->
+    <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+    data-price="7999" data-featured="true">
+    <div class="product-image-container">
+        <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+        <div class="product-actions">
+            <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                title="Agregar a favoritos">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                </svg>
+
+
+            </button>
+
+
+            <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Contenido del producto -->
+    <div class="product-content">
+        <div class="product-category">Oversize</div>
+        <h3 class="product-title">New York</h3>
+        <p class="product-description">Algodón 100% premium, corte clásico y comodidad garantizada.</p>
+
+        <div class="product-rating">
+            <div class="stars" aria-label="4.5 de 5 estrellas">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star half">★</span>
+            </div>
+            <span class="rating-count">(128)</span>
+        </div>
+
+        <div class="product-pricing">
+            <span class="current-price">$7.999</span>
+            <span class="original-price">$9.999</span>
+            <span class="discount-badge">-20%</span>
+        </div>
+
+        <!-- Tallas del producto -->
+        <div class="product-sizes">
+            <span class="size-label">Talle:</span>
+            <div class="size-options">
+                <button class="size-btn" data-size="S">S</button>
+                <button class="size-btn active" data-size="M">M</button>
+                <button class="size-btn" data-size="L">L</button>
+                <button class="size-btn" data-size="XL">XL</button>
+            </div>
+        </div>
+
+        <!-- Botón de agregar al carrito -->
+        <button class="add-to-cart-btn" data-product-id="1"
+            aria-label="Agregar Remera Básica Negra al carrito">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                </path>
+            </svg>
+            Agregar al carrito
+        </button>
+    </div>
+</article>
+
+
+<!-- Card Producto 2 -->
+                <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+                data-price="7999" data-featured="true">
+                <div class="product-image-container">
+                    <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+                    <div class="product-actions">
+                        <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                            title="Agregar a favoritos">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+
+
+                        </button>
+
+
+                        <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Contenido del producto -->
+                <div class="product-content">
+                    <div class="product-category">Oversize</div>
+                    <h3 class="product-title">New York</h3>
+                    <p class="product-description">Algodón 100% premium, corte clásico y comodidad garantizada.</p>
+
+                    <div class="product-rating">
+                        <div class="stars" aria-label="4.5 de 5 estrellas">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <span class="rating-count">(128)</span>
+                    </div>
+
+                    <div class="product-pricing">
+                        <span class="current-price">$7.999</span>
+                        <span class="original-price">$9.999</span>
+                        <span class="discount-badge">-20%</span>
+                    </div>
+
+                    <!-- Tallas del producto -->
+                    <div class="product-sizes">
+                        <span class="size-label">Talle:</span>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn active" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
+                    </div>
+
+                    <!-- Botón de agregar al carrito -->
+                    <button class="add-to-cart-btn" data-product-id="1"
+                        aria-label="Agregar Remera Básica Negra al carrito">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                            </path>
+                        </svg>
+                        Agregar al carrito
+                    </button>
+                </div>
+            </article>
+
+
+            <!-- Card Producto 2 -->
+            <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+            data-price="7999" data-featured="true">
+            <div class="product-image-container">
+                <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+                <div class="product-actions">
+                    <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                        title="Agregar a favoritos">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+
+
+                    </button>
+
+
+                    <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- Contenido del producto -->
+            <div class="product-content">
+                <div class="product-category">Oversize</div>
+                <h3 class="product-title">New York</h3>
+                <p class="product-description">Algodón 100% premium, corte clásico y comodidad garantizada.</p>
+
+                <div class="product-rating">
+                    <div class="stars" aria-label="4.5 de 5 estrellas">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star half">★</span>
+                    </div>
+                    <span class="rating-count">(128)</span>
+                </div>
+
+                <div class="product-pricing">
+                    <span class="current-price">$7.999</span>
+                    <span class="original-price">$9.999</span>
+                    <span class="discount-badge">-20%</span>
+                </div>
+
+                <!-- Tallas del producto -->
+                <div class="product-sizes">
+                    <span class="size-label">Talle:</span>
+                    <div class="size-options">
+                        <button class="size-btn" data-size="S">S</button>
+                        <button class="size-btn active" data-size="M">M</button>
+                        <button class="size-btn" data-size="L">L</button>
+                        <button class="size-btn" data-size="XL">XL</button>
+                    </div>
+                </div>
+
+                <!-- Botón de agregar al carrito -->
+                <button class="add-to-cart-btn" data-product-id="1"
+                    aria-label="Agregar Remera Básica Negra al carrito">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                        </path>
+                    </svg>
+                    Agregar al carrito
+                </button>
+            </div>
+        </article>
+
+
+
+        <!-- Card Producto 2 -->
+        <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+        data-price="7999" data-featured="true">
+        <div class="product-image-container">
+            <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+            <div class="product-actions">
+                <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                    title="Agregar a favoritos">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+
+
+                </button>
+
+
+                <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Contenido del producto -->
+        <div class="product-content">
+            <div class="product-category">Oversize</div>
+            <h3 class="product-title">New York</h3>
+            <p class="product-description">Algodón 100% premium, corte clásico y comodidad garantizada.</p>
+
+            <div class="product-rating">
+                <div class="stars" aria-label="4.5 de 5 estrellas">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star half">★</span>
+                </div>
+                <span class="rating-count">(128)</span>
+            </div>
+
+            <div class="product-pricing">
+                <span class="current-price">$7.999</span>
+                <span class="original-price">$9.999</span>
+                <span class="discount-badge">-20%</span>
+            </div>
+
+            <!-- Tallas del producto -->
+            <div class="product-sizes">
+                <span class="size-label">Talle:</span>
+                <div class="size-options">
+                    <button class="size-btn" data-size="S">S</button>
+                    <button class="size-btn active" data-size="M">M</button>
+                    <button class="size-btn" data-size="L">L</button>
+                    <button class="size-btn" data-size="XL">XL</button>
+                </div>
+            </div>
+
+            <!-- Botón de agregar al carrito -->
+            <button class="add-to-cart-btn" data-product-id="1"
+                aria-label="Agregar Remera Básica Negra al carrito">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                    </path>
+                </svg>
+                Agregar al carrito
+            </button>
+        </div>
+    </article>
+
+    <!-- Card Producto 2 -->
+    <article class="product-card" role="gridcell" data-product-id="1" data-category="basicas"
+    data-price="7999" data-featured="true">
+    <div class="product-image-container">
+        <img src="./img/carussel3index.jpg" alt="New York" class="product-image" loading="lazy">
+
+
+
+        <div class="product-actions">
+            <button class="action-btn wishlist-btn" aria-label="Agregar a favoritos"
+                title="Agregar a favoritos">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                </svg>
+
+
+            </button>
+
+
+            <button class="action-btn quick-view-btn" aria-label="Vista rápida" title="Vista rápida">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Contenido del producto -->
+    <div class="product-content">
+        <div class="product-category">Oversize</div>
+        <h3 class="product-title">New York</h3>
+        <p class="product-description">Algodón 100% premium, corte clásico y comodidad garantizada.</p>
+
+        <div class="product-rating">
+            <div class="stars" aria-label="4.5 de 5 estrellas">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star half">★</span>
+            </div>
+            <span class="rating-count">(128)</span>
+        </div>
+
+        <div class="product-pricing">
+            <span class="current-price">$7.999</span>
+            <span class="original-price">$9.999</span>
+            <span class="discount-badge">-20%</span>
+        </div>
+
+        <!-- Tallas del producto -->
+        <div class="product-sizes">
+            <span class="size-label">Talle:</span>
+            <div class="size-options">
+                <button class="size-btn" data-size="S">S</button>
+                <button class="size-btn active" data-size="M">M</button>
+                <button class="size-btn" data-size="L">L</button>
+                <button class="size-btn" data-size="XL">XL</button>
+            </div>
+        </div>
+
+        <!-- Botón de agregar al carrito -->
+        <button class="add-to-cart-btn" data-product-id="1"
+            aria-label="Agregar Remera Básica Negra al carrito">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                </path>
+            </svg>
+            Agregar al carrito
+        </button>
+    </div>
+</article>
+
+
+
+            </div>
+        </section>
+
+
+
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© <span id="year"></span> Tienda de Remeras. Todos los derechos reservados.</p>
+    <!-- Cart Drawer -->
+    <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title"
+        aria-hidden="true">
+        <div class="cart-header">
+            <h2 id="cart-title" class="cart-title">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                    </path>
+                </svg>
+                Tu Carrito
+                <span class="cart-item-count" id="cart-item-count">(0)</span>
+            </h2>
+            <button class="cart-close" id="cart-close" aria-label="Cerrar carrito">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="cart-content">
+            <div class="cart-items" id="cart-items" role="list" aria-live="polite">
+                <!-- Cart items will be dynamically generated -->
+            </div>
+
+            <div class="cart-empty" id="cart-empty" aria-hidden="true">
+                <div class="empty-state">
+                    <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
+                        </path>
+                    </svg>
+                    <h3 class="empty-title">Tu carrito está vacío</h3>
+                    <p class="empty-description">Agrega algunos productos para comenzar tu compra</p>
+                    <button class="btn btn-primary" id="continue-shopping">
+                        Continuar comprando
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-footer" id="cart-footer" aria-hidden="true">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío:</span>
+                    <span id="cart-shipping">Gratis</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="cart-total">$0</span>
+                </div>
+            </div>
+
+            <div class="cart-actions">
+                <button class="btn btn-secondary" id="clear-cart">
+                    Vaciar carrito
+                </button>
+                <button class="btn btn-primary btn-checkout" id="checkout">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9 12l2 2 4-4"></path>
+                        <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"></path>
+                        <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"></path>
+                        <path d="M13 12h3a2 2 0 0 1 2 2v1"></path>
+                        <path d="M13 12H9a2 2 0 0 0-2 2v1"></path>
+                    </svg>
+                    Finalizar compra
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Footer -->
+    <footer class="app-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">RemeraStore</h3>
+                <p class="footer-description">
+                    Tu tienda de confianza para remeras de calidad premium.
+                    Diseños únicos, materiales sostenibles y envío gratis.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Enlaces útiles</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Sobre nosotros</a></li>
+                    <li><a href="#" class="footer-link">Política de envíos</a></li>
+                    <li><a href="#" class="footer-link">Devoluciones</a></li>
+                    <li><a href="#" class="footer-link">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Atención al cliente</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Centro de ayuda</a></li>
+                    <li><a href="#" class="footer-link">Guía de tallas</a></li>
+                    <li><a href="#" class="footer-link">Estado del pedido</a></li>
+                    <li><a href="#" class="footer-link">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">
+                © <span id="current-year"></span> Kazeover. Todos los derechos reservados.
+            </p>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+
 </body>
+
 </html>

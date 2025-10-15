@@ -1,0 +1,298 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "nombre": "M",
+      "category": "basicas",
+      "price": 7999,
+      "originalPrice": 9999,
+      "image": "img/M.jpg",
+      "description": "Algodón 100% premium, corte clásico y comodidad garantizada. Perfecta para cualquier ocasión.",
+      "rating": 4.5,
+      "reviews": 128,
+      "featured": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 50,
+      "colors": ["Negro", "Blanco", "Gris"],
+      "material": "100% Algodón",
+      "care": "Lavar en frío, no usar secadora",
+      "tags": ["básica", "clásica", "premium"]
+    },
+    {
+      "id": 2,
+      "nombre": "Miline People",
+      "category": "oversize",
+      "price": 8999,
+      "originalPrice": null,
+      "image": "img/card-oversize-index1.jpg",
+      "description": "Corte oversize relajado, perfecta para un look casual y cómodo. Ideal para el día a día.",
+      "rating": 4.2,
+      "reviews": 89,
+      "featured": false,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 30,
+      "colors": ["Blanco", "Beige", "Rosa"],
+      "material": "95% Algodón, 5% Elastano",
+      "care": "Lavar en frío, secar al aire",
+      "tags": ["oversize", "cómoda", "casual"]
+    },
+    {
+      "id": 3,
+      "nombre": "Remera basica",
+      "category": "vintage",
+      "price": 9999,
+      "originalPrice": null,
+      "image": "img/carrusel2index.jpg",
+      "description": "Diseño vintage único con estampado retro y materiales premium. Para los amantes del estilo clásico.",
+      "rating": 4.8,
+      "reviews": 67,
+      "featured": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 25,
+      "colors": ["Vintage", "Antique", "Retro"],
+      "material": "100% Algodón Orgánico",
+      "care": "Lavar a mano, no usar blanqueador",
+      "tags": ["vintage", "retro", "único"]
+    },
+    {
+      "id": 4,
+      "nombre": "Remera Minimalista ",
+      "category": "basicas",
+      "price": 6999,
+      "originalPrice": 7999,
+      "image": "img/carrusel4index.jpg",
+      "description": "Diseño minimalista en gris, perfecta para cualquier ocasión. Elegancia y simplicidad.",
+      "rating": 4.3,
+      "reviews": 95,
+      "featured": false,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 40,
+      "colors": ["Gris", "Gris Oscuro", "Gris Claro"],
+      "material": "100% Algodón Pima",
+      "care": "Lavar en frío, planchar a temperatura media",
+      "tags": ["minimalista", "elegante", "versátil"]
+    },
+    {
+      "id": 5,
+      "nombre": "Remera",
+      "category": "estampadas",
+      "price": 11999,
+      "originalPrice": null,
+      "image": "img/carrusel5index.jpg",
+      "description": "Arte urbano en cada prenda, diseño exclusivo y limitado. Para los que buscan algo único.",
+      "rating": 4.7,
+      "reviews": 43,
+      "featured": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 15,
+      "colors": ["Multicolor", "Negro", "Blanco"],
+      "material": "100% Algodón + Estampado Digital",
+      "care": "Lavar en frío, no frotar el estampado",
+      "tags": ["artística", "única", "limitada"]
+    },
+    {
+      "id": 6,
+      "nombre": "Remera Oversize Colorida",
+      "category": "oversize",
+      "price": 10999,
+      "originalPrice": 12999,
+      "image": "img/newyork.jpeg",
+      "description": "Colores vibrantes en corte oversize, ideal para destacar. Perfecta para el verano.",
+      "rating": 4.4,
+      "reviews": 78,
+      "featured": false,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 20,
+      "colors": ["Amarillo", "Rosa", "Azul", "Verde"],
+      "material": "100% Algodón Orgánico",
+      "care": "Lavar en frío, secar a la sombra",
+      "tags": ["colorida", "vibrante", "verano"]
+    },
+    {
+      "id": 7,
+      "nombre": "Remera Básica Blanca Premium",
+      "category": "basicas",
+      "price": 8999,
+      "originalPrice": null,
+      "image": "img/carrusel1index.jpg",
+      "description": "La remera blanca perfecta. Algodón premium con acabado suave y durabilidad excepcional.",
+      "rating": 4.6,
+      "reviews": 156,
+      "featured": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 60,
+      "colors": ["Blanco", "Hueso", "Cremoso"],
+      "material": "100% Algodón Supima",
+      "care": "Lavar en frío, usar detergente suave",
+      "tags": ["premium", "básica", "durable"]
+    },
+    {
+      "id": 8,
+      "nombre": "Remera Estampada Tropical",
+      "category": "estampadas",
+      "price": 12999,
+      "originalPrice": null,
+      "image": "img/carrusel2index.jpg",
+      "description": "Diseño tropical con estampado de palmeras y colores vibrantes. Para los amantes del verano.",
+      "rating": 4.9,
+      "reviews": 34,
+      "featured": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 12,
+      "colors": ["Tropical", "Verde", "Azul"],
+      "material": "100% Algodón + Estampado Sublimado",
+      "care": "Lavar en frío, no usar blanqueador",
+      "tags": ["tropical", "verano", "vibrante"]
+    },
+    {
+      "id": 9,
+      "nombre": "Remera Oversize Negra",
+      "category": "oversize",
+      "price": 9499,
+      "originalPrice": null,
+      "image": "img/card-oversize-index1.jpg",
+      "description": "Corte oversize en negro, perfecta para un look urbano y moderno. Comodidad garantizada.",
+      "rating": 4.1,
+      "reviews": 82,
+      "featured": false,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 35,
+      "colors": ["Negro", "Gris Oscuro"],
+      "material": "95% Algodón, 5% Elastano",
+      "care": "Lavar en frío, secar al aire",
+      "tags": ["oversize", "urbana", "moderna"]
+    },
+    {
+      "id": 10,
+      "nombre": "Remera Vintage Band",
+      "category": "vintage",
+      "price": 13999,
+      "originalPrice": 15999,
+      "image": "img/carrusel4index.jpg",
+      "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
+      "rating": 4.8,
+      "reviews": 29,
+      "featured": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 8,
+      "colors": ["Vintage", "Negro", "Gris"],
+      "material": "100% Algodón + Estampado Vintage",
+      "care": "Lavar a mano, no usar secadora",
+      "tags": ["vintage", "banda", "rock", "único"]
+    },
+    {
+        "id": 11,
+        "nombre": "Remera Vintage Band",
+        "category": "vintage",
+        "price": 13999,
+        "originalPrice": 15999,
+        "image": "img/carrusel4index.jpg",
+        "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
+        "rating": 4.8,
+        "reviews": 29,
+        "featured": true,
+        "sizes": ["S", "M", "L", "XL"],
+        "stock": 8,
+        "colors": ["Vintage", "Negro", "Gris"],
+        "material": "100% Algodón + Estampado Vintage",
+        "care": "Lavar a mano, no usar secadora",
+        "tags": ["vintage", "banda", "rock", "único"]
+      },
+      {
+        "id": 12,
+        "nombre": "Remera Vintage Band",
+        "category": "vintage",
+        "price": 13999,
+        "originalPrice": 15999,
+        "image": "img/carrusel4index.jpg",
+        "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
+        "rating": 4.8,
+        "reviews": 29,
+        "featured": true,
+        "sizes": ["S", "M", "L", "XL"],
+        "stock": 8,
+        "colors": ["Vintage", "Negro", "Gris"],
+        "material": "100% Algodón + Estampado Vintage",
+        "care": "Lavar a mano, no usar secadora",
+        "tags": ["vintage", "banda", "rock", "único"]
+      }
+
+],
+  
+  
+    "categories": [
+    {
+      "id": "basicas",
+      "nombre": "Básicas",
+      "description": "Remeras esenciales para tu guardarropa"
+    },
+    {
+      "id": "oversize",
+      "nombre": "Oversize",
+      "description": "Corte relajado y cómodo"
+    },
+    {
+      "id": "vintage",
+      "nombre": "Vintage",
+      "description": "Estilo retro y clásico"
+    },
+    {
+      "id": "estampadas",
+      "nombre": "Estampadas",
+      "description": "Diseños únicos y artísticos"
+    }
+  ],
+  "priceRanges": [
+    {
+      "id": "0-5000",
+      "label": "$0 - $5.000",
+      "min": 0,
+      "max": 5000
+    },
+    {
+      "id": "5000-10000",
+      "label": "$5.000 - $10.000",
+      "min": 5000,
+      "max": 10000
+    },
+    {
+      "id": "10000-15000",
+      "label": "$10.000 - $15.000",
+      "min": 10000,
+      "max": 15000
+    },
+    {
+      "id": "15000+",
+      "label": "$15.000+",
+      "min": 15000,
+      "max": null
+    }
+  ],
+  "sortOptions": [
+    {
+      "id": "featured",
+      "label": "Destacados",
+      "description": "Productos destacados primero"
+    },
+    {
+      "id": "price-low",
+      "label": "Precio: menor a mayor",
+      "description": "Ordenar por precio ascendente"
+    },
+    {
+      "id": "price-high",
+      "label": "Precio: mayor a menor",
+      "description": "Ordenar por precio descendente"
+    },
+    {
+      "id": "newest",
+      "label": "Más recientes",
+      "description": "Productos más nuevos primero"
+    },
+    {
+      "id": "rating",
+      "label": "Mejor valorados",
+      "description": "Ordenar por calificación"
+    }
+  ]
+}
