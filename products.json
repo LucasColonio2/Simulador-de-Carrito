@@ -4,12 +4,11 @@
       "id": 1,
       "nombre": "M",
       "category": "basicas",
-      "price": 7999,
-      "originalPrice": 9999,
+      "price": 30000,
+      "originalPricq5ktkkkke": 4000,
       "image": "img/M.jpg",
-      "description": "Algodón 100% premium, corte clásico y comodidad garantizada. Perfecta para cualquier ocasión.",
-      "rating": 4.5,
-      "reviews": 128,
+      "description"k: "Algodón 100% premium, corte clásico y comodidad garantizada. Perfecta para cualquier ocasión.",
+
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 50,
@@ -18,6 +17,8 @@
       "care": "Lavar en frío, no usar secadora",
       "tags": ["básica", "clásica", "premium"]
     },
+
+    
     {
       "id": 2,
       "nombre": "Miline People",
@@ -26,8 +27,6 @@
       "originalPrice": null,
       "image": "img/card-oversize-index1.jpg",
       "description": "Corte oversize relajado, perfecta para un look casual y cómodo. Ideal para el día a día.",
-      "rating": 4.2,
-      "reviews": 89,
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 30,
@@ -36,6 +35,8 @@
       "care": "Lavar en frío, secar al aire",
       "tags": ["oversize", "cómoda", "casual"]
     },
+
+
     {
       "id": 3,
       "nombre": "Remera basica",
@@ -44,8 +45,6 @@
       "originalPrice": null,
       "image": "img/carrusel2index.jpg",
       "description": "Diseño vintage único con estampado retro y materiales premium. Para los amantes del estilo clásico.",
-      "rating": 4.8,
-      "reviews": 67,
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 25,
@@ -62,8 +61,6 @@
       "originalPrice": 7999,
       "image": "img/carrusel4index.jpg",
       "description": "Diseño minimalista en gris, perfecta para cualquier ocasión. Elegancia y simplicidad.",
-      "rating": 4.3,
-      "reviews": 95,
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 40,
@@ -80,8 +77,6 @@
       "originalPrice": null,
       "image": "img/carrusel5index.jpg",
       "description": "Arte urbano en cada prenda, diseño exclusivo y limitado. Para los que buscan algo único.",
-      "rating": 4.7,
-      "reviews": 43,
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 15,
@@ -98,8 +93,6 @@
       "originalPrice": 12999,
       "image": "img/newyork.jpeg",
       "description": "Colores vibrantes en corte oversize, ideal para destacar. Perfecta para el verano.",
-      "rating": 4.4,
-      "reviews": 78,
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 20,
@@ -116,8 +109,6 @@
       "originalPrice": null,
       "image": "img/carrusel1index.jpg",
       "description": "La remera blanca perfecta. Algodón premium con acabado suave y durabilidad excepcional.",
-      "rating": 4.6,
-      "reviews": 156,
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 60,
@@ -134,8 +125,6 @@
       "originalPrice": null,
       "image": "img/carrusel2index.jpg",
       "description": "Diseño tropical con estampado de palmeras y colores vibrantes. Para los amantes del verano.",
-      "rating": 4.9,
-      "reviews": 34,
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 12,
@@ -152,8 +141,6 @@
       "originalPrice": null,
       "image": "img/card-oversize-index1.jpg",
       "description": "Corte oversize en negro, perfecta para un look urbano y moderno. Comodidad garantizada.",
-      "rating": 4.1,
-      "reviews": 82,
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 35,
@@ -170,8 +157,6 @@
       "originalPrice": 15999,
       "image": "img/carrusel4index.jpg",
       "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
-      "rating": 4.8,
-      "reviews": 29,
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 8,
@@ -188,8 +173,6 @@
         "originalPrice": 15999,
         "image": "img/carrusel4index.jpg",
         "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
-        "rating": 4.8,
-        "reviews": 29,
         "featured": true,
         "sizes": ["S", "M", "L", "XL"],
         "stock": 8,
@@ -206,8 +189,6 @@
         "originalPrice": 15999,
         "image": "img/carrusel4index.jpg",
         "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
-        "rating": 4.8,
-        "reviews": 29,
         "featured": true,
         "sizes": ["S", "M", "L", "XL"],
         "stock": 8,
@@ -216,7 +197,6 @@
         "care": "Lavar a mano, no usar secadora",
         "tags": ["vintage", "banda", "rock", "único"]
       }
-
 ],
   
   
@@ -242,6 +222,9 @@
       "description": "Diseños únicos y artísticos"
     }
   ],
+
+
+
   "priceRanges": [
     {
       "id": "0-5000",
@@ -268,6 +251,9 @@
       "max": null
     }
   ],
+
+
+
   "sortOptions": [
     {
       "id": "featured",
@@ -275,12 +261,12 @@
       "description": "Productos destacados primero"
     },
     {
-      "id": "price-low",
+      "id": "precio-low",
       "label": "Precio: menor a mayor",
       "description": "Ordenar por precio ascendente"
     },
     {
-      "id": "price-high",
+      "id": "precio-high",
       "label": "Precio: mayor a menor",
       "description": "Ordenar por precio descendente"
     },

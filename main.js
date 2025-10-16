@@ -18,6 +18,7 @@ class StoreState {
         this.error = null;
     }
 
+
     // Cargando los productos de productos.JSON
     async loadProducts() {
         try {
@@ -25,27 +26,29 @@ class StoreState {
             this.error = null;
             
             const response = await fetch('./products.json');
-
             if (!response.ok) {
                 throw new Error(`Error en la respuesta de la API ${response.status}`);
             }
             
             const data = await response.json();
+
             this.products = data.products || [];
             this.categories = data.categories || [];
             this.priceRanges = data.priceRanges || [];
             this.sortOptions = data.sortOptions || [];
             
             console.log(`✅ Cargados ${this.products.length} productos desde JSON`);
+
+            console.log (data)
             return true;
             
-
-
+            
         } catch (error) {
             console.error('❌ Error cargando productos:', error);
             this.error = error.message;
-            this.products = this.getFallbackProducts();
             return false;
+
+
         } finally {
             this.isLoading = false;
         }
@@ -53,13 +56,16 @@ class StoreState {
 
 
 
-    // GESTION DE CARRITO
+    // GESTOR DEL CARRITO
+
+    //AGREGAR PRODUCTO A CARRITO
     addToCart(productId, size = 'M', quantity = 1) {
         const product = this.products.find(p => p.id === productId);
         if (!product) {
             console.error('❌ Producto no encontrado:', productId);
             return false;
         }
+
 
         const cartItem = {
             id: `${productId}-${size}`,
@@ -84,6 +90,7 @@ class StoreState {
         return true;
     }
 
+//ELIMINAR PRODUCTO DEL CARRITO
     removeFromCart(itemId) {
         this.cart = this.cart.filter(item => item.id !== itemId);
         this.saveCartToStorage();
@@ -101,12 +108,15 @@ class StoreState {
         }
     }
 
+
+
+    //ELIMINAR CARRITO
     clearCart() {
         this.cart = [];
         this.saveCartToStorage();
     }
 
-
+//OBTENER TOTAL DE CARRITO
     getCartTotal() {
         return this.cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     }
@@ -114,9 +124,6 @@ class StoreState {
     getCartItemCount() {
         return this.cart.reduce((count, item) => count + item.quantity, 0);
     }
-
-
-
 
 
     // Local storage
@@ -134,16 +141,16 @@ class StoreState {
 
 
 
-    // Product filtering
+    // FILTRO DE PRODUCTOS 
     getFilteredProducts() {
         let filtered = [...this.products];
 
-        // Category filter
+        // FILTRO POR CATEGORIA
         if (this.filters.category) {
             filtered = filtered.filter(product => product.category === this.filters.category);
         }
 
-        // Price filter
+        // FILTRO POR PRECIO
         if (this.filters.price) {
             const [min, max] = this.filters.price.split('-').map(Number);
             filtered = filtered.filter(product => {
@@ -155,12 +162,12 @@ class StoreState {
             });
         }
 
-        // Sort
+        // FILTRO ORDENAR por precio mas alto y mas bajo
         switch (this.filters.sort) {
-            case 'price-low':
+            case 'precio-low':
                 filtered.sort((a, b) => a.price - b.price);
                 break;
-            case 'price-high':
+            case 'precio-high':
                 filtered.sort((a, b) => b.price - a.price);
                 break;
             case 'newest':
@@ -175,8 +182,6 @@ class StoreState {
         return filtered;
     }
 }
-
-
 
 
 
@@ -262,7 +267,6 @@ class UIComponents {
 
 
 
-
 // ===== CART MANAGER =====
 class CartManager {
     constructor(storeState, uiComponents) {
@@ -282,14 +286,15 @@ class CartManager {
         this.clearCartBtn = document.getElementById('clear-cart');
         this.checkoutBtn = document.getElementById('checkout');
         this.continueShoppingBtn = document.getElementById('continue-shopping');
-
         this.initializeCart();
     }
 
+//INICIALIZACION DE CARRITO
     initializeCart() {
         this.setupEventListeners();
         this.updateCartUI();
     }
+
 
     setupEventListeners() {
         // Cart toggle
@@ -317,12 +322,16 @@ class CartManager {
         document.body.style.overflow = 'hidden';
     }
 
+
+
     closeCart() {
         this.cartDrawer.setAttribute('aria-hidden', 'true');
         this.cartOverlay.setAttribute('aria-hidden', 'true');
         this.cartToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     }
+
+
 
     isCartOpen() {
         return this.cartDrawer.getAttribute('aria-hidden') === 'false';
@@ -606,43 +615,13 @@ class ProductManager {
                 <div class="product-image-container">
                     <img src="${product.image}" 
                          alt="${product.name}" 
-                         class="product-image"
-                         loading="lazy"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xNTAgMTAwQzE2NS40NjQgMTAwIDE3OCAxMTIuNTM2IDE3OCAxMjhDMTc4IDE0My40NjQgMTY1LjQ2NCAxNTYgMTUwIDE1NkMxMzQuNTM2IDE1NiAxMjIgMTQzLjQ2NCAxMjIgMTI4QzEyMiAxMTIuNTM2IDEzNC41MzYgMTAwIDE1MCAxMDBaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0xMjIgMTY4SDE3OFYyMDBIMTIyVjE2OFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+'; this.alt='Imagen no disponible';">
-                    <div class="product-badges">
-                        ${product.featured ? '<span class="badge badge-featured">Destacado</span>' : ''}
-                        ${product.id > 3 ? '<span class="badge badge-new">Nuevo</span>' : ''}
-                        ${discount > 0 ? `<span class="badge badge-discount">-${discount}%</span>` : ''}
-                    </div>
-                    <div class="product-actions">
-                        <button class="action-btn wishlist-btn" 
-                                aria-label="Agregar a favoritos"
-                                title="Agregar a favoritos">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                            </svg>
-                        </button>
-                        <button class="action-btn quick-view-btn" 
-                                aria-label="Vista rápida"
-                                title="Vista rápida">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </button>
-                    </div>
+                         class="product-image">
                 </div>
                 
                 <div class="product-content">
                     <div class="product-category">${this.getCategoryName(product.category)}</div>
                         <h3 class="product-title">${product.nombre}</h3>
                     <p class="product-description">${product.description}</p>
-                    
-                    <div class="product-rating">
-                        <div class="stars" aria-label="${product.rating} de 5 estrellas">
-                            ${this.ui.generateStarRating(product.rating)}
-                        </div>
-                        <span class="rating-count">(${product.reviews})</span>
                     </div>
                     
                     <div class="product-pricing">
@@ -670,8 +649,7 @@ class ProductManager {
                     </button>
                 </div>
             </article>
-        `;
-    }
+        `; }
 
     getCategoryName(category) {
         const categories = {
@@ -753,14 +731,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Initialize managers
         window.cartManager = new CartManager(window.storeState, window.uiComponents);
         window.productManager = new ProductManager(window.storeState, window.uiComponents, window.cartManager);
-        window.searchManager = new SearchManager(window.storeState, window.productManager);
         
         // Update UI
         window.uiComponents.updateCurrentYear();
         window.cartManager.updateCartUI();
         
         // Load products from JSON
-        console.log('📦 Cargando productos desde JSON...');
         const success = await window.storeState.loadProducts();
         
         if (success) {
@@ -776,30 +752,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         console.log('🚀 RemeraStore initialized successfully!');
         
-        // Debug function to test images
-        window.testImages = () => {
-            console.log('🔍 Probando carga de imágenes...');
-            const testImages = [
-                'img/M.jpg',
-                'img/card-oversize-index1.jpg',
-                'img/carrusel2index.jpg',
-                'img/carrusel4index.jpg',
-                'img/carrusel5index.jpg',
-                'img/newyork.jpeg'
-            ];
-            
-            testImages.forEach(src => {
-                const img = new Image();
-                img.onload = () => console.log(`✅ ${src} - OK`);
-                img.onerror = () => console.log(`❌ ${src} - ERROR`);
-                img.src = src;
-            });
-        };
-        
-        // Run image test automatically
-        setTimeout(() => {
-            window.testImages();
-        }, 1000);
+      
         
     } catch (error) {
         console.error('❌ Error inicializando la aplicación:', error);
@@ -826,9 +779,16 @@ window.checkImageExists = (src) => {
     });
 };
 
+
+
+
 window.getImageFallback = () => {
     return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0zMCAyMEMzNi42MjcgMjAgNDIgMjUuMzczIDQyIDMyQzQyIDM4LjYyNyAzNi42MjcgNDQgMzAgNDRDMjMuMzczIDQ0IDE4IDM4LjYyNyAxOCAzMkMxOCAyNS4zNzMgMjMuMzczIDIwIDMwIDIwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMjQgMzZIMzZWNDRIMjRWMzZaIiBmaWxsPSIjOUNBM0FGIi8+Cjwvc3ZnPg==';
 };
+
+
+
+
 
 // ===== PERFORMANCE OPTIMIZATIONS =====
 // Lazy loading for images
