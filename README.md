@@ -15,9 +15,13 @@ Más allá del código, busca **mostrar el proceso de aprendizaje, mejora contin
 📦 simulador-carrito/
 │
 ├── index.html # Página principal y estructura base
+
 ├── style.css # Estilos principales y responsive
+
 ├── main.js # Lógica del carrito, renderizado y eventos
+
 ├── products.json # Catálogo de productos
+
 └── README.md # Documentación del proyecto
 
 
