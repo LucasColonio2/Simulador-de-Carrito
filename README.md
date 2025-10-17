@@ -51,7 +51,7 @@ Actualmente se está trabajando en:
 
 ---
 
-🚀 Mejoras futuras
+##🚀 Mejoras futuras
 
 🧾 Agregar un resumen de compra final con formulario.
 
