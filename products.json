@@ -5,73 +5,61 @@
       "nombre": "M",
       "category": "basicas",
       "price": 30000,
-      "originalPricq5ktkkkke": 4000,
+      "originalPrice": null,
       "image": "img/M.jpg",
-      "description"k: "Algodón 100% premium, corte clásico y comodidad garantizada. Perfecta para cualquier ocasión.",
-
+      "description": "Algodón 100% premium, corte clásico y comodidad garantizada. Perfecta para cualquier ocasión.",
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 50,
-      "colors": ["Negro", "Blanco", "Gris"],
-      "material": "100% Algodón",
-      "care": "Lavar en frío, no usar secadora",
       "tags": ["básica", "clásica", "premium"]
     },
 
-    
     {
       "id": 2,
       "nombre": "Miline People",
       "category": "oversize",
       "price": 8999,
       "originalPrice": null,
-      "image": "img/card-oversize-index1.jpg",
+      "image": "img/M.jpg",
       "description": "Corte oversize relajado, perfecta para un look casual y cómodo. Ideal para el día a día.",
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 30,
       "colors": ["Blanco", "Beige", "Rosa"],
-      "material": "95% Algodón, 5% Elastano",
-      "care": "Lavar en frío, secar al aire",
       "tags": ["oversize", "cómoda", "casual"]
     },
 
 
     {
       "id": 3,
-      "nombre": "Remera basica",
+      "nombre": "WISE",
       "category": "vintage",
       "price": 9999,
       "originalPrice": null,
-      "image": "img/carrusel2index.jpg",
+      "image": "img/M.jpg",
       "description": "Diseño vintage único con estampado retro y materiales premium. Para los amantes del estilo clásico.",
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 25,
-      "colors": ["Vintage", "Antique", "Retro"],
-      "material": "100% Algodón Orgánico",
-      "care": "Lavar a mano, no usar blanqueador",
       "tags": ["vintage", "retro", "único"]
     },
+
     {
       "id": 4,
       "nombre": "Remera Minimalista ",
       "category": "basicas",
       "price": 6999,
       "originalPrice": 7999,
-      "image": "img/carrusel4index.jpg",
+      "image": "img/M.jpg",
       "description": "Diseño minimalista en gris, perfecta para cualquier ocasión. Elegancia y simplicidad.",
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 40,
-      "colors": ["Gris", "Gris Oscuro", "Gris Claro"],
-      "material": "100% Algodón Pima",
-      "care": "Lavar en frío, planchar a temperatura media",
       "tags": ["minimalista", "elegante", "versátil"]
     },
     {
       "id": 5,
-      "nombre": "Remera",
+      "nombre": "Grow The Game",
       "category": "estampadas",
       "price": 11999,
       "originalPrice": null,
@@ -80,9 +68,6 @@
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 15,
-      "colors": ["Multicolor", "Negro", "Blanco"],
-      "material": "100% Algodón + Estampado Digital",
-      "care": "Lavar en frío, no frotar el estampado",
       "tags": ["artística", "única", "limitada"]
     },
     {
@@ -91,19 +76,16 @@
       "category": "oversize",
       "price": 10999,
       "originalPrice": 12999,
-      "image": "img/newyork.jpeg",
+      "image": "img/M.jpg",
       "description": "Colores vibrantes en corte oversize, ideal para destacar. Perfecta para el verano.",
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 20,
-      "colors": ["Amarillo", "Rosa", "Azul", "Verde"],
-      "material": "100% Algodón Orgánico",
-      "care": "Lavar en frío, secar a la sombra",
       "tags": ["colorida", "vibrante", "verano"]
     },
     {
       "id": 7,
-      "nombre": "Remera Básica Blanca Premium",
+      "nombre": "Blessed",
       "category": "basicas",
       "price": 8999,
       "originalPrice": null,
@@ -112,9 +94,6 @@
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 60,
-      "colors": ["Blanco", "Hueso", "Cremoso"],
-      "material": "100% Algodón Supima",
-      "care": "Lavar en frío, usar detergente suave",
       "tags": ["premium", "básica", "durable"]
     },
     {
@@ -128,9 +107,6 @@
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 12,
-      "colors": ["Tropical", "Verde", "Azul"],
-      "material": "100% Algodón + Estampado Sublimado",
-      "care": "Lavar en frío, no usar blanqueador",
       "tags": ["tropical", "verano", "vibrante"]
     },
     {
@@ -144,14 +120,11 @@
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 35,
-      "colors": ["Negro", "Gris Oscuro"],
-      "material": "95% Algodón, 5% Elastano",
-      "care": "Lavar en frío, secar al aire",
       "tags": ["oversize", "urbana", "moderna"]
     },
     {
       "id": 10,
-      "nombre": "Remera Vintage Band",
+      "nombre": "Dragon blanco",
       "category": "vintage",
       "price": 13999,
       "originalPrice": 15999,
@@ -160,9 +133,6 @@
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 8,
-      "colors": ["Vintage", "Negro", "Gris"],
-      "material": "100% Algodón + Estampado Vintage",
-      "care": "Lavar a mano, no usar secadora",
       "tags": ["vintage", "banda", "rock", "único"]
     },
     {
@@ -176,9 +146,6 @@
         "featured": true,
         "sizes": ["S", "M", "L", "XL"],
         "stock": 8,
-        "colors": ["Vintage", "Negro", "Gris"],
-        "material": "100% Algodón + Estampado Vintage",
-        "care": "Lavar a mano, no usar secadora",
         "tags": ["vintage", "banda", "rock", "único"]
       },
       {
@@ -192,9 +159,6 @@
         "featured": true,
         "sizes": ["S", "M", "L", "XL"],
         "stock": 8,
-        "colors": ["Vintage", "Negro", "Gris"],
-        "material": "100% Algodón + Estampado Vintage",
-        "care": "Lavar a mano, no usar secadora",
         "tags": ["vintage", "banda", "rock", "único"]
       }
 ],

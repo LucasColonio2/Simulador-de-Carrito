@@ -1375,22 +1375,3 @@ select:focus-visible {
     transform: scale(1.05);
 }
 
-/* Print styles */
-@media print {
-    .app-header,
-    .cart-drawer,
-    .cart-overlay,
-    .toast-container {
-        display: none !important;
-    }
-    
-    .app-main {
-        margin-top: 0;
-    }
-    
-    .product-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ccc;
-    }
-}
