@@ -14,6 +14,7 @@ Más allá del código, busca **mostrar el proceso de aprendizaje, mejora contin
 ## 🧱 Estructura del proyecto
 📦 simulador-carrito/
 │
+
 ├── index.html # Página principal y estructura base
 
 ├── style.css # Estilos principales y responsive
