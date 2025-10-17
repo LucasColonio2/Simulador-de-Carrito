@@ -3,29 +3,13 @@
 Este proyecto es un **simulador de carrito de compras web**, desarrollado con el objetivo de practicar la lógica y experiencia de una tienda online moderna.  
 Más allá del código, busca **mostrar el proceso de aprendizaje, mejora continua y pasión por construir interfaces funcionales y humanas**.
 
----
-
-## 💡 Propósito del proyecto
-
-El simulador nació como una **entrega académica**, pero evolucionó hacia algo más: una forma de **entender cómo se conectan las piezas que hacen que una web “viva”**.  
-No se trata solo de sumar o restar productos: se trata de crear una experiencia simple, intuitiva y cercana al usuario.
-
-Cada línea de código fue escrita, probada, corregida y vuelta a pensar con la idea de mejorar un poco más cada día.
-
----
 
 ## ⚙️ Tecnologías y librerías utilizadas
-
-| Tipo | Herramienta / Librería | Uso principal |
-|------|------------------------|----------------|
-| 🎨 Estilos
-
 | 💾 Almacenamiento | **LocalStorage API** | Guardar productos persistentes entre sesiones |
 | 🧩 Datos | **Fetch + JSON** | Carga dinámica del catálogo desde `products.json` |
 | 🔔 Notificaciones | **SweetAlert2** *(opcional)* | Mensajes visuales al agregar o eliminar ítems |
 | 💰 Formato de precios | **Intl.NumberFormat** | Mostrar precios con formato regional claro |
 
----
 
 ## 🧱 Estructura del proyecto
 📦 simulador-carrito/
