@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./main.js" defer>  </script>
     <title>Kazeover - Tienda Online de Remeras</title>
 </head>
@@ -77,9 +78,9 @@
                     <div class="filter-group">
                         <label for="category-filter" class="filter-label">Categoría</label>
 
-<!-- Filtrar por categoria-->
+                        <!-- Filtrar por categoria-->
 
-                        <select id="category-filter" class="filter-select" >
+                        <select id="category-filter" class="filter-select">
                             <option value="">Todas las categorías</option>
                             <option value="basicas">Básicas</option>
                             <option value="estampadas">Estampadas</option>
@@ -87,7 +88,7 @@
                             <option value="vintage">Vintage</option>
                         </select>
                     </div>
-<!-- Filtrar por precio-->
+                    <!-- Filtrar por precio-->
                     <div class="filter-group">
                         <label for="price-filter" class="filter-label">Precio</label>
                         <select id="price-filter" class="filter-select" aria-label="Filtrar por precio">
@@ -98,7 +99,7 @@
                         </select>
                     </div>
 
-<!-- Filtrar mayor a menor por precio-->
+                    <!-- Filtrar mayor a menor por precio-->
                     <div class="filter-group">
                         <label for="sort-filter" class="filter-label">Ordenar</label>
                         <select id="sort-filter" class="filter-select">
@@ -131,19 +132,19 @@
     </main>
 
     <!-- Cart Drawer -->
-    <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title"
-        aria-hidden="true">
+    <aside id="cart-drawer" class="cart-drawer" aria-hidden="true">
+        <!-- HTML de header -->
         <div class="cart-header">
             <h2 id="cart-title" class="cart-title">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path
                         d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-6m8 0V9a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4.01">
                     </path>
-                </svg>
-                Tu Carrito
-                <span class="cart-item-count" id="cart-item-count">(0)</span>
+                </svg> Tu Carrito
+                <span class="cart-item-count" id="cart-item-count"> </span>
             </h2>
-            <button class="cart-close" id="cart-close" aria-label="Cerrar carrito">
+
+            <button class="cart-close" id="cart-close">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -151,11 +152,11 @@
             </button>
         </div>
 
-        <div class="cart-content">
-            <div class="cart-items" id="cart-items" role="list" aria-live="polite">
-                <!-- Cart items will be dynamically generated -->
-            </div>
+        <div class="cart-content" id="cart-content">
+          <!-- aqui va la cartcounterproduct --> </div>
 
+
+        
             <div class="cart-empty" id="cart-empty" aria-hidden="true">
                 <div class="empty-state">
                     <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -172,6 +173,8 @@
             </div>
         </div>
 
+
+<!-- FOOTER DEL TICKET -->
         <div class="cart-footer" id="cart-footer" aria-hidden="true">
             <div class="cart-summary">
                 <div class="summary-row">
@@ -186,9 +189,9 @@
                     <span>Total:</span>
                     <span id="cart-total">$0</span>
                 </div>
-            </div>
+            </div> 
 
-            <div class="cart-actions">
+       <div class="cart-actions">
                 <button class="btn btn-secondary" id="clear-cart">
                     Vaciar carrito
                 </button>
@@ -214,19 +217,9 @@
     <!-- Cart Overlay -->
     <div class="cart-overlay" id="cart-overlay" aria-hidden="true">
 
-        <h1>Hola</h1>
     </div>
 
-    <!-- Toast Notifications -->
-    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
-
-
-
-
-
-
-
-
+>
 
     <!-- Footer -->
     <footer class="app-footer" role="contentinfo">

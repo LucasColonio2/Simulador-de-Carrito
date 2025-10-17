@@ -10,8 +10,7 @@
       "description": "Algodón 100% premium, corte clásico y comodidad garantizada. Perfecta para cualquier ocasión.",
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 50,
-      "tags": ["básica", "clásica", "premium"]
+      "stock": 50
     },
 
     {
@@ -24,9 +23,7 @@
       "description": "Corte oversize relajado, perfecta para un look casual y cómodo. Ideal para el día a día.",
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 30,
-      "colors": ["Blanco", "Beige", "Rosa"],
-      "tags": ["oversize", "cómoda", "casual"]
+      "stock": 30
     },
 
 
@@ -40,8 +37,7 @@
       "description": "Diseño vintage único con estampado retro y materiales premium. Para los amantes del estilo clásico.",
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 25,
-      "tags": ["vintage", "retro", "único"]
+      "stock": 25
     },
 
     {
@@ -54,8 +50,7 @@
       "description": "Diseño minimalista en gris, perfecta para cualquier ocasión. Elegancia y simplicidad.",
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 40,
-      "tags": ["minimalista", "elegante", "versátil"]
+      "stock": 40
     },
     {
       "id": 5,
@@ -67,8 +62,7 @@
       "description": "Arte urbano en cada prenda, diseño exclusivo y limitado. Para los que buscan algo único.",
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 15,
-      "tags": ["artística", "única", "limitada"]
+      "stock": 15
     },
     {
       "id": 6,
@@ -80,8 +74,7 @@
       "description": "Colores vibrantes en corte oversize, ideal para destacar. Perfecta para el verano.",
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 20,
-      "tags": ["colorida", "vibrante", "verano"]
+      "stock": 20
     },
     {
       "id": 7,
@@ -93,8 +86,7 @@
       "description": "La remera blanca perfecta. Algodón premium con acabado suave y durabilidad excepcional.",
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 60,
-      "tags": ["premium", "básica", "durable"]
+      "stock": 60
     },
     {
       "id": 8,
@@ -106,8 +98,7 @@
       "description": "Diseño tropical con estampado de palmeras y colores vibrantes. Para los amantes del verano.",
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 12,
-      "tags": ["tropical", "verano", "vibrante"]
+      "stock": 12
     },
     {
       "id": 9,
@@ -119,8 +110,7 @@
       "description": "Corte oversize en negro, perfecta para un look urbano y moderno. Comodidad garantizada.",
       "featured": false,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 35,
-      "tags": ["oversize", "urbana", "moderna"]
+      "stock": 35
     },
     {
       "id": 10,
@@ -132,8 +122,7 @@
       "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
       "featured": true,
       "sizes": ["S", "M", "L", "XL"],
-      "stock": 8,
-      "tags": ["vintage", "banda", "rock", "único"]
+      "stock": 8
     },
     {
         "id": 11,
@@ -145,8 +134,7 @@
         "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
         "featured": true,
         "sizes": ["S", "M", "L", "XL"],
-        "stock": 8,
-        "tags": ["vintage", "banda", "rock", "único"]
+        "stock": 8
       },
       {
         "id": 12,
@@ -158,8 +146,7 @@
         "description": "Estilo vintage inspirado en bandas clásicas. Diseño único y auténtico para los rockeros.",
         "featured": true,
         "sizes": ["S", "M", "L", "XL"],
-        "stock": 8,
-        "tags": ["vintage", "banda", "rock", "único"]
+        "stock": 8
       }
 ],
   
