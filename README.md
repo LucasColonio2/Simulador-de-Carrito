@@ -54,7 +54,11 @@ Actualmente se está trabajando en:
 🚀 Mejoras futuras
 
 🧾 Agregar un resumen de compra final con formulario.
+
 🧩 Sistema de categorías y filtros combinados.
+
 🌙 Modo oscuro / claro automático.
+
 💳 Simulación de pago básico.
+
 🧑‍🦯 Optimización de accesibilidad (teclado y lector de pantalla).
